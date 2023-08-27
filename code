@@ -1,0 +1,20 @@
+import tkinter as ui
+import time
+
+window=ui.Tk()
+def update_time():
+    hours=time.strftime("%I")
+    min=time.strftime("%M")
+    sec=time.strftime("%S")
+    am_pm=time.strftime("%p")
+    time_text=hours+":"+min+":"+sec+""+am_pm
+    digital_clock_label.config(text=time_text)
+    digital_clock_label.after(1000,update_time)
+def change_colour():
+    digital_clock_label.configure(bg="dark blue")
+
+digital_clock_label=ui.Label(window,text="00:00:00",font="Helvetica 85 bold",fg="light blue")
+digital_clock_label.pack()
+change_colour()
+update_time()
+window.mainloop()
